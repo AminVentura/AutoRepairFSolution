@@ -1,0 +1,21 @@
+Para que todas las fotos se vean en la página, copia las 6 imágenes a esta carpeta "assets" con estos nombres:
+
+  banner-servicios.png   → Foto con mecánico y servicios
+  tip-sabias-que.png     → Recuadro amarillo "¿Sabías que...?"
+  fernando-lara.png      → Banner rojo/negro Fernando Lara
+  equipo.png             → Foto del equipo en el taller
+  logo-gear.png          → Logo con engranaje y herramientas
+  logo-square.png        → Logo cuadrado con detalle púrpura
+
+COMANDO PARA COPIAR (PowerShell):
+  Abre PowerShell, ve a la carpeta del proyecto y ejecuta:
+
+    cd "C:\Users\Amin\OneDrive\Desktop\AutoRepairFSolution"
+    .\copiar-fotos.ps1
+
+  Si da error de ejecución, primero permite scripts:
+    Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy RemoteSigned
+
+  Luego vuelve a ejecutar: .\copiar-fotos.ps1
+
+Si falta alguna imagen, la sección correspondiente se ocultará o mostrará un respaldo.
