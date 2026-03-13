@@ -34,7 +34,13 @@
           <li><a href="#agendar" data-i18n="nav_agendar">Agendar cita</a></li>
           <li><a href="#promociones" data-i18n="nav_promociones">Promociones</a></li>
           <li><a href="#ubicacion" data-i18n="nav_ubicacion">Ubicación</a></li>
+          <li><a href="#reviews" data-i18n="nav_reviews">Reseñas</a></li>
+          <li><a href="#galeria" data-i18n="nav_gallery">Galería</a></li>
           <li><a href="#contacto" data-i18n="nav_contacto">Contacto</a></li>
+          <li class="nav-cta-mobile">
+            <a href="tel:+13477829896" class="nav-link-call"><span aria-hidden="true">📞</span> <span data-i18n="cta_call_now">Llamar ahora</span></a>
+            <a href="https://wa.me/13477829896" class="nav-link-wa" target="_blank" rel="noopener"><span aria-hidden="true">💬</span> WhatsApp</a>
+          </li>
         </ul>
       </nav>
       <div class="header-actions">
@@ -61,6 +67,19 @@
         <p class="hero-badge" data-i18n="hero_badge">Mecánica General Fernando Lara · Bronx, NY</p>
         <h1 data-i18n="hero_title">Tu vehículo en las mejores manos</h1>
         <p class="hero-sub" data-i18n="hero_sub">Diagnóstico, reparación y mantenimiento. Atención 24 horas. Presupuesto sin compromiso.</p>
+        <!-- CTAs principales: llamar y WhatsApp (lo que más convierte en talleres) -->
+        <div class="hero-cta-bar">
+          <a href="tel:+13477829896" class="btn-cta btn-cta-call" id="cta-call-now">
+            <span class="btn-cta-icon" aria-hidden="true">📞</span>
+            <span class="btn-cta-text" data-i18n="cta_call_now">Call Now</span>
+            <span class="btn-cta-num">(347) 782-9896</span>
+          </a>
+          <a href="https://wa.me/13477829896" class="btn-cta btn-cta-whatsapp" target="_blank" rel="noopener" id="cta-whatsapp">
+            <span class="btn-cta-icon" aria-hidden="true">💬</span>
+            <span class="btn-cta-text" data-i18n="cta_whatsapp">WhatsApp</span>
+            <span class="btn-cta-sub" data-i18n="cta_whatsapp_sub">Pedir cita o consultar</span>
+          </a>
+        </div>
         <div class="hero-cta">
           <a href="#agendar" class="btn btn-primary" data-i18n="btn_agendar">Agendar cita</a>
           <a href="https://wa.me/13477829896" class="btn btn-outline" target="_blank" rel="noopener" data-i18n="btn_whatsapp">Escribir por WhatsApp</a>
@@ -89,29 +108,44 @@
     <section id="servicios" class="section services">
       <div class="container">
         <h2 class="section-title" data-i18n="services_title">Nuestros servicios</h2>
-        <p class="section-subtitle" data-i18n="services_sub">Soluciones completas para tu auto, con calidad y confianza.</p>
-        <div class="services-grid">
-          <article class="service-card">
-            <div class="service-icon">⚙️</div>
-            <h3 data-i18n="serv_mecanic">Mecánica general</h3>
-            <p data-i18n="serv_mecanic_desc">Motor, transmisión, frenos, suspensión y todo lo que tu vehículo necesite.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">🔍</div>
-            <h3 data-i18n="serv_diag">Diagnóstico</h3>
-            <p data-i18n="serv_diag_desc">Revisión con escáner y experiencia para detectar fallas y dar presupuesto claro.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">🛞</div>
-            <h3 data-i18n="serv_frenos">Frenos y suspensión</h3>
-            <p data-i18n="serv_frenos_desc">Pastillas, discos, amortiguadores y alineación para tu seguridad.</p>
-          </article>
-          <article class="service-card">
-            <div class="service-icon">🔋</div>
-            <h3 data-i18n="serv_electrico">Eléctrico y batería</h3>
-            <p data-i18n="serv_electrico_desc">Alternador, arranque, batería y sistema eléctrico del vehículo.</p>
-          </article>
-        </div>
+        <p class="section-subtitle" data-i18n="services_sub">Soluciones completas para tu auto, con calidad y confianza. Auto repair near me · Mecánico en Bronx, NY.</p>
+        <ul class="services-list" role="list">
+          <li class="service-list-item">
+            <span class="service-list-icon" aria-hidden="true">🛢️</span>
+            <div>
+              <h3 class="service-list-title" data-i18n="serv_oil">Oil Change</h3>
+              <p class="service-list-desc" data-i18n="serv_oil_desc">Cambio de aceite y filtro. Mantenimiento preventivo para alargar la vida del motor.</p>
+            </div>
+          </li>
+          <li class="service-list-item">
+            <span class="service-list-icon" aria-hidden="true">🛞</span>
+            <div>
+              <h3 class="service-list-title" data-i18n="serv_brake">Brake Repair</h3>
+              <p class="service-list-desc" data-i18n="serv_brake_desc">Reparación y cambio de frenos: pastillas, discos, calipers. Tu seguridad es prioridad.</p>
+            </div>
+          </li>
+          <li class="service-list-item">
+            <span class="service-list-icon" aria-hidden="true">🔍</span>
+            <div>
+              <h3 class="service-list-title" data-i18n="serv_diag">Engine Diagnostics</h3>
+              <p class="service-list-desc" data-i18n="serv_diag_desc">Revisión con escáner y experiencia para detectar fallas y dar presupuesto claro.</p>
+            </div>
+          </li>
+          <li class="service-list-item">
+            <span class="service-list-icon" aria-hidden="true">⚙️</span>
+            <div>
+              <h3 class="service-list-title" data-i18n="serv_trans">Transmission Repair</h3>
+              <p class="service-list-desc" data-i18n="serv_trans_desc">Reparación de transmisión automática y manual. Diagnóstico y servicio especializado.</p>
+            </div>
+          </li>
+          <li class="service-list-item">
+            <span class="service-list-icon" aria-hidden="true">❄️</span>
+            <div>
+              <h3 class="service-list-title" data-i18n="serv_ac">AC Repair</h3>
+              <p class="service-list-desc" data-i18n="serv_ac_desc">Reparación y carga de aire acondicionado. Diagnóstico de fugas y recarga de refrigerante.</p>
+            </div>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -173,8 +207,9 @@
       <div class="container">
         <div class="banner-card">
           <div class="banner-content">
-            <h2 data-i18n="form_title">Agenda tu cita para reparar tu vehículo</h2>
-            <p data-i18n="form_desc">Completa el formulario con los datos de tu auto y el problema. Te contestamos por WhatsApp para confirmar tu cita.</p>
+            <p class="form-badge" data-i18n="form_badge">Presupuesto sin compromiso</p>
+            <h2 data-i18n="form_quote_title">Solicitar presupuesto gratuito</h2>
+            <p data-i18n="form_desc">Completa el formulario con los datos de tu auto y el problema. Te contestamos por WhatsApp con tu cotización y para confirmar tu cita.</p>
           </div>
           <form id="form-cita" class="form-cita" novalidate>
             <div class="form-row">
@@ -197,8 +232,55 @@
               <label for="problema" data-i18n="form_problema">Describe el problema o servicio que necesitas *</label>
               <textarea id="problema" name="problema" rows="4" required data-i18n-placeholder="ph_problema" placeholder="Ej: El motor hace un ruido..."></textarea>
             </div>
-            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Enviar y contactar por WhatsApp</button>
+            <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Solicitar presupuesto gratuito</button>
           </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reseñas -->
+    <section class="section reviews" id="reviews">
+      <div class="container">
+        <h2 class="section-title" data-i18n="reviews_title">Lo que dicen nuestros clientes</h2>
+        <p class="section-subtitle" data-i18n="reviews_sub">Confían en nosotros para el cuidado de su vehículo.</p>
+        <div class="reviews-grid">
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text" data-i18n="review_1_text">"Excelente servicio y reparación rápida. Muy recomendados."</p>
+            <footer class="review-author" data-i18n="review_1_author">— Cliente satisfecho</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text" data-i18n="review_2_text">"Excellent service and fast repair! Will come back."</p>
+            <footer class="review-author" data-i18n="review_2_author">— Happy customer</footer>
+          </blockquote>
+          <blockquote class="review-card">
+            <div class="review-stars" aria-hidden="true">★★★★★</div>
+            <p class="review-text" data-i18n="review_3_text">"Buen precio y trato honesto. Me explicaron todo antes de hacer el trabajo."</p>
+            <footer class="review-author" data-i18n="review_3_author">— Cliente, Bronx</footer>
+          </blockquote>
+        </div>
+      </div>
+    </section>
+
+    <!-- Galería del taller (fotos reales) -->
+    <section class="section gallery" id="galeria">
+      <div class="container">
+        <h2 class="section-title" data-i18n="gallery_title">Nuestro taller</h2>
+        <p class="section-subtitle" data-i18n="gallery_sub">Mecánicos trabajando, instalaciones y vehículos que confían en nosotros.</p>
+        <div class="gallery-grid">
+          <div class="gallery-item">
+            <img src="./assets/banner-servicios.png" alt="Mecánico trabajando en motor - Auto Repair F Solution Bronx" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
+            <span class="gallery-caption" data-i18n="gallery_1">Mecánico trabajando</span>
+          </div>
+          <div class="gallery-item">
+            <img src="./assets/equipo.png" alt="Equipo del taller - Auto Repair F Solution" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
+            <span class="gallery-caption" data-i18n="gallery_2">Nuestro equipo en el taller</span>
+          </div>
+          <div class="gallery-item">
+            <img src="./assets/fernando-lara.png" alt="Auto Repair F Solution - Servicio y calidad" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
+            <span class="gallery-caption" data-i18n="gallery_3">Servicio profesional</span>
+          </div>
         </div>
       </div>
     </section>
@@ -228,12 +310,13 @@
       </div>
     </section>
 
-    <section id="ubicacion" class="section location">
+    <section id="ubicacion" class="section location" aria-labelledby="location-heading">
       <div class="container">
-        <h2 class="section-title location-title">
+        <h2 id="location-heading" class="section-title location-title">
           <svg class="icon-map" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
           <span data-i18n="location_title">Dónde estamos</span>
         </h2>
+        <p class="location-seo" data-i18n="location_seo">Mechanic near me · Auto repair near me · Taller mecánico Bronx NY · 834 St Anns Ave</p>
         <div class="location-grid">
           <div class="location-info">
             <h3>Auto Repair F Solution</h3>
@@ -244,9 +327,9 @@
               <p><strong data-i18n="location_oficina">Oficina:</strong> <a href="tel:+19295990454">(929) 599-0454</a></p>
               <p><strong data-i18n="location_taller2">Taller 2:</strong> <a href="tel:+19298388816">(929) 838-8816</a></p>
             </div>
-            <a href="https://www.google.com/maps/search/834+St+Anns+Ave,+Bronx,+NY+10456" class="btn btn-outline btn-with-icon" target="_blank" rel="noopener">
+            <a href="https://www.google.com/maps/dir//834+St+Anns+Ave,+Bronx,+NY+10456" class="btn btn-primary btn-with-icon btn-directions" target="_blank" rel="noopener">
               <svg class="icon-map-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
-              <span data-i18n="btn_maps">Ver en Google Maps</span>
+              <span data-i18n="btn_directions">Cómo llegar (Google Maps)</span>
             </a>
           </div>
           <div class="map-wrap">
@@ -255,7 +338,7 @@
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="Ubicación Auto Repair F Solution"
+              title="Auto Repair F Solution - Mechanic near me, 834 St Anns Ave Bronx NY"
             ></iframe>
           </div>
         </div>
