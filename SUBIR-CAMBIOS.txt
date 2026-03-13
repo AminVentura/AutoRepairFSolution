@@ -1,0 +1,16 @@
+Comandos para subir los nuevos cambios a GitHub
+==============================================
+
+Abre PowerShell en la carpeta del proyecto y ejecuta:
+
+cd "C:\Users\Amin\OneDrive\Desktop\AutoRepairFSolution"
+
+git add .
+git commit -m "Mejoras: servicios claros, reseñas, galería, presupuesto gratuito, Google Maps SEO"
+git push origin main
+
+---
+Si te pide usuario y contraseña:
+- Usuario: tu usuario de GitHub (AminVentura)
+- Contraseña: usa un Personal Access Token (no la contraseña de la cuenta)
+  Crear token: GitHub → Settings → Developer settings → Personal access tokens → Generate new token (marca "repo")
