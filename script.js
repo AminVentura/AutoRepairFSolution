@@ -89,6 +89,8 @@
       review_3_author: '— Cliente, Bronx',
       gallery_title: 'Nuestro taller',
       gallery_sub: 'Mecánicos trabajando, instalaciones y vehículos que confían en nosotros.',
+      gallery_click_hint: 'Haz clic en cualquier foto para verla en grande.',
+      gallery_close: 'Cerrar',
       gallery_1: 'Mecánico trabajando',
       gallery_2: 'Nuestro equipo en el taller',
       gallery_3: 'Servicio profesional',
@@ -200,6 +202,8 @@
       review_3_author: '— Customer, Bronx',
       gallery_title: 'Our shop',
       gallery_sub: 'Mechanics at work, our facility, and vehicles that trust us.',
+      gallery_click_hint: 'Click any photo to view it full size.',
+      gallery_close: 'Close',
       gallery_1: 'Mechanic at work',
       gallery_2: 'Our team at the shop',
       gallery_3: 'Professional service',
@@ -344,6 +348,44 @@
       localStorage.setItem(COOKIE_CONSENT_KEY, expiry.toISOString());
       cookieBanner.classList.remove('is-visible');
       cookieBanner.setAttribute('aria-hidden', 'true');
+    });
+  }
+
+  // Galería: lightbox al hacer clic en una foto
+  var lightbox = document.getElementById('gallery-lightbox');
+  var lightboxImg = lightbox && lightbox.querySelector('.gallery-lightbox-img');
+  var lightboxCaption = lightbox && lightbox.querySelector('.gallery-lightbox-caption');
+  var lightboxClose = lightbox && lightbox.querySelector('.gallery-lightbox-close');
+  var lightboxBackdrop = lightbox && lightbox.querySelector('.gallery-lightbox-backdrop');
+
+  function openLightbox(src, caption) {
+    if (!lightbox || !lightboxImg || !lightboxCaption) return;
+    lightboxImg.src = src;
+    lightboxImg.alt = caption;
+    lightboxCaption.textContent = caption;
+    lightbox.hidden = false;
+    document.body.style.overflow = 'hidden';
+    if (lightboxClose) lightboxClose.focus();
+  }
+
+  function closeLightbox() {
+    if (!lightbox) return;
+    lightbox.hidden = true;
+    document.body.style.overflow = '';
+  }
+
+  if (lightbox) {
+    document.querySelectorAll('.gallery-item').forEach(function (item) {
+      item.addEventListener('click', function () {
+        var img = this.querySelector('img');
+        var cap = this.querySelector('.gallery-caption');
+        if (img && img.src) openLightbox(img.src, (cap && cap.textContent) || img.alt || '');
+      });
+    });
+    if (lightboxClose) lightboxClose.addEventListener('click', closeLightbox);
+    if (lightboxBackdrop) lightboxBackdrop.addEventListener('click', closeLightbox);
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && lightbox && !lightbox.hidden) closeLightbox();
     });
   }
 })();

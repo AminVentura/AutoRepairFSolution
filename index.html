@@ -263,24 +263,34 @@
       </div>
     </section>
 
-    <!-- Galería del taller (fotos reales) -->
+    <!-- Galería del taller (fotos reales) - clic para ver en grande -->
     <section class="section gallery" id="galeria">
       <div class="container">
         <h2 class="section-title" data-i18n="gallery_title">Nuestro taller</h2>
         <p class="section-subtitle" data-i18n="gallery_sub">Mecánicos trabajando, instalaciones y vehículos que confían en nosotros.</p>
+        <p class="gallery-hint" data-i18n="gallery_click_hint">Haz clic en cualquier foto para verla en grande.</p>
         <div class="gallery-grid">
-          <div class="gallery-item">
+          <button type="button" class="gallery-item" aria-label="Ver foto: Mecánico trabajando en motor">
             <img src="./assets/banner-servicios.png" alt="Mecánico trabajando en motor - Auto Repair F Solution Bronx" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
             <span class="gallery-caption" data-i18n="gallery_1">Mecánico trabajando</span>
-          </div>
-          <div class="gallery-item">
+          </button>
+          <button type="button" class="gallery-item" aria-label="Ver foto: Equipo del taller">
             <img src="./assets/equipo.png" alt="Equipo del taller - Auto Repair F Solution" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
             <span class="gallery-caption" data-i18n="gallery_2">Nuestro equipo en el taller</span>
-          </div>
-          <div class="gallery-item">
+          </button>
+          <button type="button" class="gallery-item" aria-label="Ver foto: Servicio y calidad">
             <img src="./assets/fernando-lara.png" alt="Auto Repair F Solution - Servicio y calidad" loading="lazy" onerror="this.parentElement.classList.add('hide')" />
             <span class="gallery-caption" data-i18n="gallery_3">Servicio profesional</span>
-          </div>
+          </button>
+        </div>
+      </div>
+      <!-- Lightbox: ver foto en grande -->
+      <div id="gallery-lightbox" class="gallery-lightbox" role="dialog" aria-modal="true" aria-label="Ver imagen" hidden>
+        <div class="gallery-lightbox-backdrop" aria-hidden="true"></div>
+        <div class="gallery-lightbox-content">
+          <button type="button" class="gallery-lightbox-close" data-i18n="gallery_close" aria-label="Cerrar">Cerrar</button>
+          <img class="gallery-lightbox-img" src="" alt="" />
+          <p class="gallery-lightbox-caption"></p>
         </div>
       </div>
     </section>
