@@ -210,6 +210,7 @@
             <p class="form-badge" data-i18n="form_badge">Presupuesto sin compromiso</p>
             <h2 data-i18n="form_quote_title">Solicitar presupuesto gratuito</h2>
             <p data-i18n="form_desc">Completa el formulario con los datos de tu auto y el problema. Te contestamos por WhatsApp con tu cotización y para confirmar tu cita.</p>
+            <p class="form-disclaimer" data-i18n="form_disclaimer">La cita queda sujeta a disponibilidad. Si el horario que pides ya está ocupado, te confirmaremos por WhatsApp y te ofreceremos otro horario disponible.</p>
           </div>
           <form id="form-cita" class="form-cita" novalidate>
             <div class="form-row">
@@ -228,11 +229,19 @@
               <label for="modelo" data-i18n="form_modelo">Modelo y año *</label>
               <input type="text" id="modelo" name="modelo" required data-i18n-placeholder="ph_modelo" placeholder="Ej: Camry 2020" />
             </div>
+            <div class="form-row">
+              <label for="horario-preferido" data-i18n="form_preferred_time">Horario preferido (fecha y hora)</label>
+              <input type="text" id="horario-preferido" name="horario_preferido" data-i18n-placeholder="ph_preferred_time" placeholder="Ej: Martes 15 marzo 1:00 PM" />
+            </div>
             <div class="form-row full">
               <label for="problema" data-i18n="form_problema">Describe el problema o servicio que necesitas *</label>
               <textarea id="problema" name="problema" rows="4" required data-i18n-placeholder="ph_problema" placeholder="Ej: El motor hace un ruido..."></textarea>
             </div>
             <button type="submit" class="btn btn-primary btn-block" data-i18n="form_submit">Solicitar presupuesto gratuito</button>
+            <!-- Opcional: cuando el taller tenga Calendly/Setmore/Booksy, pon la URL en script.js (BOOKING_URL) para mostrar "Ver horarios disponibles" -->
+            <p class="form-booking-link-wrap" id="form-booking-link-wrap" style="display: none;">
+              <a href="#" id="form-booking-link" class="form-booking-link" target="_blank" rel="noopener" data-i18n="form_booking_link">Ver horarios disponibles (reserva en vivo)</a>
+            </p>
           </form>
         </div>
       </div>
@@ -243,6 +252,16 @@
       <div class="container">
         <h2 class="section-title" data-i18n="reviews_title">Lo que dicen nuestros clientes</h2>
         <p class="section-subtitle" data-i18n="reviews_sub">Confían en nosotros para el cuidado de su vehículo.</p>
+        <div class="reviews-google-row">
+          <p class="reviews-google-note" data-i18n="reviews_google_note">Las opiniones más recientes y la calificación están en Google. Abre el perfil del negocio para leer todas las reseñas.</p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Repair+F+Solution+834+St+Anns+Ave+Bronx+NY+10456"
+            class="btn btn-google-reviews"
+            target="_blank"
+            rel="noopener noreferrer"
+            data-i18n="reviews_google_btn"
+          >Ver reseñas en Google</a>
+        </div>
         <div class="reviews-grid">
           <blockquote class="review-card">
             <div class="review-stars" aria-hidden="true">★★★★★</div>
@@ -337,10 +356,16 @@
               <p><strong data-i18n="location_oficina">Oficina:</strong> <a href="tel:+19295990454">(929) 599-0454</a></p>
               <p><strong data-i18n="location_taller2">Taller 2:</strong> <a href="tel:+19298388816">(929) 838-8816</a></p>
             </div>
-            <a href="https://www.google.com/maps/dir//834+St+Anns+Ave,+Bronx,+NY+10456" class="btn btn-primary btn-with-icon btn-directions" target="_blank" rel="noopener">
+            <a href="https://www.google.com/maps/dir//834+St+Anns+Ave,+Bronx,+NY+10456" class="btn btn-primary btn-with-icon btn-directions" target="_blank" rel="noopener noreferrer">
               <svg class="icon-map-sm" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
               <span data-i18n="btn_directions">Cómo llegar (Google Maps)</span>
             </a>
+            <a href="https://www.google.com/maps/search/?api=1&amp;query=Auto+Repair+F+Solution+834+St+Anns+Ave+Bronx+NY+10456" class="btn btn-outline btn-with-icon btn-google-listing" target="_blank" rel="noopener noreferrer">
+              <svg class="icon-google-g" viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285F4" d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"/><path fill="#34A853" d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z"/><path fill="#FBBC05" d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l2.85-2.22.81-.62z"/><path fill="#EA4335" d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z"/></svg>
+              <span data-i18n="btn_google_reviews">Ver perfil y reseñas en Google</span>
+            </a>
+            <p class="location-opengov-desc" data-i18n="location_opengov_desc">Consulta datos oficiales del negocio en el registro público de Nueva York.</p>
+            <a href="https://opengovny.com/corporation/7530727" class="link-opengov" target="_blank" rel="noopener noreferrer" data-i18n="location_opengov_link">Auto Repair F Solution — registro corporativo (OpenGov NY)</a>
           </div>
           <div class="map-wrap">
             <iframe

@@ -610,6 +610,16 @@ img { max-width: 100%; height: auto; display: block; }
   color: var(--color-text-muted);
   font-size: 0.95rem;
 }
+.form-disclaimer {
+  margin: 0.75rem 0 0 !important;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.85rem;
+  color: var(--color-silver);
+  background: rgba(201, 162, 39, 0.08);
+  border-left: 3px solid var(--color-primary);
+  border-radius: 0 var(--radius) var(--radius) 0;
+  text-align: left;
+}
 .form-cita {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -655,6 +665,20 @@ img { max-width: 100%; height: auto; display: block; }
   grid-column: 1 / -1;
   margin-top: 0.5rem;
   padding: 0.9rem;
+}
+.form-booking-link-wrap {
+  grid-column: 1 / -1;
+  text-align: center;
+  margin-top: 0.75rem;
+}
+.form-booking-link {
+  font-size: 0.9rem;
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 600;
+}
+.form-booking-link:hover {
+  text-decoration: underline;
 }
 
 /* ===== Promociones ===== */
@@ -797,6 +821,62 @@ img { max-width: 100%; height: auto; display: block; }
   margin: 0;
   font-size: 0.9rem;
   color: var(--color-text-muted);
+}
+.reviews-google-row {
+  max-width: 640px;
+  margin: 0 auto 2rem;
+  text-align: center;
+  padding: 1.25rem 1.5rem;
+  background: var(--color-surface-2);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+}
+.reviews-google-note {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+  color: var(--color-text-muted);
+}
+.btn-google-reviews {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.25rem;
+  background: #fff;
+  color: #1a1a1a;
+  border: 1px solid #dadce0;
+  border-radius: var(--radius);
+  font-weight: 600;
+  text-decoration: none;
+  transition: box-shadow 0.2s, border-color 0.2s;
+}
+.btn-google-reviews:hover {
+  box-shadow: 0 1px 6px rgba(32, 33, 36, 0.28);
+  border-color: #dadce0;
+  color: #1a1a1a;
+}
+.btn-google-listing .icon-google-g {
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+.location-opengov-desc {
+  margin: 1.25rem 0 0.5rem;
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+}
+.link-opengov {
+  display: inline-block;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-primary);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.link-opengov:hover {
+  color: var(--color-silver);
 }
 
 /* ===== Galería del taller ===== */

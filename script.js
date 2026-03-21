@@ -3,6 +3,8 @@
 
   const WHATSAPP_NUMBER = '13477829896';
   const STORAGE_LANG = 'arfs-lang';
+  // Si el taller usa Calendly, Setmore u otro sistema de reservas con horarios en vivo, pon aquí la URL para mostrar "Ver horarios disponibles"
+  const BOOKING_URL = '';
 
   var currentLang = localStorage.getItem(STORAGE_LANG) || 'es';
 
@@ -46,16 +48,20 @@
       form_badge: 'Presupuesto sin compromiso',
       form_quote_title: 'Solicitar presupuesto gratuito',
       form_desc: 'Completa el formulario con los datos de tu auto y el problema. Te contestamos por WhatsApp con tu cotización y para confirmar tu cita.',
+      form_disclaimer: 'La cita queda sujeta a disponibilidad. Si el horario que pides ya está ocupado, te confirmaremos por WhatsApp y te ofreceremos otro horario disponible.',
       form_name: 'Nombre completo *',
       form_phone: 'Teléfono *',
       form_marca: 'Marca del vehículo *',
       form_modelo: 'Modelo y año *',
+      form_preferred_time: 'Horario preferido (fecha y hora)',
       form_problema: 'Describe el problema o servicio que necesitas *',
       form_submit: 'Solicitar presupuesto gratuito',
+      form_booking_link: 'Ver horarios disponibles (reserva en vivo)',
       ph_name: 'Tu nombre',
       ph_phone: 'Ej: (347) 555-1234',
       ph_marca: 'Ej: Toyota, Honda, Ford',
       ph_modelo: 'Ej: Camry 2020',
+      ph_preferred_time: 'Ej: Martes 15 marzo 1:00 PM',
       ph_problema: 'Ej: El motor hace un ruido al acelerar, necesito revisión de frenos, cambio de aceite...',
       promo_title: 'Promociones',
       promo_sub: 'Aprovecha estas ofertas para el cuidado de tu vehículo.',
@@ -79,8 +85,13 @@
       location_taller2: 'Taller 2:',
       btn_maps: 'Ver en Google Maps',
       btn_directions: 'Cómo llegar (Google Maps)',
+      btn_google_reviews: 'Ver perfil y reseñas en Google',
+      location_opengov_desc: 'Consulta datos oficiales del negocio en el registro público de Nueva York (OpenGov NY).',
+      location_opengov_link: 'Auto Repair F Solution — registro corporativo (documento #7530727)',
       reviews_title: 'Lo que dicen nuestros clientes',
       reviews_sub: 'Confían en nosotros para el cuidado de su vehículo.',
+      reviews_google_note: 'Las opiniones más recientes y la calificación están en Google. Abre el perfil del negocio para leer todas las reseñas que dejan los clientes.',
+      reviews_google_btn: 'Ver reseñas en Google',
       review_1_text: '"Excelente servicio y reparación rápida. Muy recomendados."',
       review_1_author: '— Cliente satisfecho',
       review_2_text: '"Excellent service and fast repair! Will come back."',
@@ -118,6 +129,7 @@
       msg_name: 'Nombre:',
       msg_phone: 'Teléfono:',
       msg_vehicle: 'Vehículo:',
+      msg_preferred_time: 'Horario preferido:',
       msg_problema: 'Problema o servicio:'
     },
     en: {
@@ -161,16 +173,20 @@
       form_badge: 'Free estimate',
       form_quote_title: 'Request a Free Quote',
       form_desc: 'Fill out the form with your vehicle details and the issue. We will reply via WhatsApp with your quote and to confirm your appointment.',
+      form_disclaimer: 'Appointment is subject to availability. If your requested time is already taken, we will confirm via WhatsApp and offer you another available slot.',
       form_name: 'Full name *',
       form_phone: 'Phone *',
       form_marca: 'Vehicle make *',
       form_modelo: 'Model and year *',
+      form_preferred_time: 'Preferred date & time',
       form_problema: 'Describe the problem or service you need *',
       form_submit: 'Request Free Quote',
+      form_booking_link: 'View available times (live booking)',
       ph_name: 'Your name',
       ph_phone: 'E.g.: (347) 555-1234',
       ph_marca: 'E.g.: Toyota, Honda, Ford',
       ph_modelo: 'E.g.: Camry 2020',
+      ph_preferred_time: 'E.g.: Tuesday March 15 1:00 PM',
       ph_problema: 'E.g.: Engine makes a noise when accelerating, need brake check, oil change...',
       promo_title: 'Promotions',
       promo_sub: 'Take advantage of these offers for your vehicle care.',
@@ -192,8 +208,13 @@
       location_taller2: 'Shop 2:',
       btn_maps: 'View on Google Maps',
       btn_directions: 'Get directions (Google Maps)',
+      btn_google_reviews: 'View business profile & Google reviews',
+      location_opengov_desc: 'See official business details on New York’s public corporation registry (OpenGov NY).',
+      location_opengov_link: 'Auto Repair F Solution — corporate filing (document #7530727)',
       reviews_title: 'What our customers say',
       reviews_sub: 'They trust us for their vehicle care.',
+      reviews_google_note: 'The latest ratings and reviews are on Google. Open the business profile to read what customers say.',
+      reviews_google_btn: 'See reviews on Google',
       review_1_text: '"Excellent service and fast repair! Highly recommended."',
       review_1_author: '— Satisfied customer',
       review_2_text: '"Excellent service and fast repair! Will come back."',
@@ -231,6 +252,7 @@
       msg_name: 'Name:',
       msg_phone: 'Phone:',
       msg_vehicle: 'Vehicle:',
+      msg_preferred_time: 'Preferred time:',
       msg_problema: 'Problem or service:'
     }
   };
@@ -286,6 +308,14 @@
     });
   }
 
+  // Enlace opcional a reserva con horarios en vivo (Calendly/Setmore/Booksy)
+  var bookingWrap = document.getElementById('form-booking-link-wrap');
+  var bookingLink = document.getElementById('form-booking-link');
+  if (bookingWrap && bookingLink && BOOKING_URL) {
+    bookingWrap.style.display = 'block';
+    bookingLink.href = BOOKING_URL;
+  }
+
   // Formulario de cita → mensaje WhatsApp
   var formCita = document.getElementById('form-cita');
   if (formCita) {
@@ -297,6 +327,7 @@
       var telefono = document.getElementById('telefono').value.trim();
       var marca = document.getElementById('marca').value.trim();
       var modelo = document.getElementById('modelo').value.trim();
+      var horarioPreferido = document.getElementById('horario-preferido') && document.getElementById('horario-preferido').value.trim();
       var problema = document.getElementById('problema').value.trim();
 
       if (!nombre || !telefono || !marca || !modelo || !problema) {
@@ -310,10 +341,11 @@
         t.msg_name + ' ' + nombre,
         t.msg_phone + ' ' + telefono,
         t.msg_vehicle + ' ' + marca + ' - ' + modelo,
+        horarioPreferido ? (t.msg_preferred_time + ' ' + horarioPreferido) : null,
         '',
         t.msg_problema,
         problema
-      ].join('\n');
+      ].filter(Boolean).join('\n');
 
       var url = 'https://wa.me/' + WHATSAPP_NUMBER + '?text=' + encodeURIComponent(mensaje);
       window.open(url, '_blank', 'noopener,noreferrer');
